@@ -110,19 +110,19 @@ class OrderController extends Controller
             $token = $request->header('Authorization');
             $token = str_replace("Bearer ", '', $token);
 
-            $emailResponse = Http::withToken($token)
-                ->timeout(600)->post(env('EMAIL_SERVICE_URL') . '/api/v1/emails', [
-                    'from' => 'no-reply@gmail.com',
-                    'to' => 'robejan938@aleitar.com',
-                    'subject' => 'Confirmacion de nuevo pedido #' . $data['_id'],
-                    'content' => 'Hola ' . $valData['customer_name'] . ' queremos agradecer por tu compra, gracias
-                    por elegirnos. Que tengas un buen dia.',
-                    'order' => $data
-                ]);
+            // $emailResponse = Http::withToken($token)
+            //     ->timeout(600)->post(env('EMAIL_SERVICE_URL') . '/api/v1/emails', [
+            //         'from' => 'no-reply@gmail.com',
+            //         'to' => 'robejan938@aleitar.com',
+            //         'subject' => 'Confirmacion de nuevo pedido #' . $data['_id'],
+            //         'content' => 'Hola ' . $valData['customer_name'] . ' queremos agradecer por tu compra, gracias
+            //         por elegirnos. Que tengas un buen dia.',
+            //         'order' => $data
+            //     ]);
 
-            if ($emailResponse->failed() || !$emailResponse->json()) {
-                return response()->json(['error' => 'Error al enviar el email'], Response::HTTP_INTERNAL_SERVER_ERROR);
-            }
+            // if ($emailResponse->failed() || !$emailResponse->json()) {
+            //     return response()->json(['error' => 'Error al enviar el email'], Response::HTTP_INTERNAL_SERVER_ERROR);
+            // }
 
 
             return  response()->json([
