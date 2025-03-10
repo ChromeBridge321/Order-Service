@@ -79,16 +79,16 @@ class OrderController extends Controller
                 ];
             }
 
-            foreach ($updatedProducts as $productUpdate) {
-                $updatedResponse = Http::withToken($token)
-                    ->timeout(60)->put(env('INVENTORY_SERVICE_URL') . '/api/v1/products/' . $pro['product_id'], [
-                        'quantity' => $productUpdate['new_quantity']
-                    ]);
+            // foreach ($updatedProducts as $productUpdate) {
+            //     $updatedResponse = Http::withToken($token)
+            //         ->timeout(60)->put(env('INVENTORY_SERVICE_URL') . '/api/v1/products/' . $pro['product_id'], [
+            //             'quantity' => $productUpdate['new_quantity']
+            //         ]);
 
-                if ($updatedResponse->failed()) {
-                    return response()->json(['error' => 'Error al actualizar el stock del producto'], Response::HTTP_BAD_REQUEST);
-                }
-            }
+            //     if ($updatedResponse->failed()) {
+            //         return response()->json(['error' => 'Error al actualizar el stock del producto'], Response::HTTP_BAD_REQUEST);
+            //     }
+            // }
 
 
 
