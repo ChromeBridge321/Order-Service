@@ -21,7 +21,7 @@ use MongoDB\Client;
 Route::prefix('v1')->middleware(['api','jwt.verify'])->group(function(){
     Route::prefix('orders')->group(function(){
         Route::get('/', [OrderController::class,'index']);
-        Route::post('/', [OrderController::class,'store']);
+        Route::post('/store', [OrderController::class,'store']);
         Route::get('/{id}', [OrderController::class,'show']);
         Route::put('/{id}', [OrderController::class,'update']);
         Route::delete('/{id}', [OrderController::class,'destroy']);
