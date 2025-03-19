@@ -27,5 +27,3 @@ Route::prefix('v1')->middleware(['api','jwt.verify'])->group(function(){
         Route::delete('/{id}', [OrderController::class,'destroy']);
     });
 });
-
-Route::get('/return', [OrderController::class,'return']);
