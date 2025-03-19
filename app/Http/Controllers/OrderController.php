@@ -209,4 +209,7 @@ class OrderController extends Controller
         }
     }
 
+    public function return(){
+        return Response::HTTP_OK;
+    }
 }
