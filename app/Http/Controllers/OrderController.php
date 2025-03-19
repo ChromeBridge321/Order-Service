@@ -208,4 +208,8 @@ class OrderController extends Controller
             return response()->json(['error' => $ex->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+
+    public function purgar(){
+        return response()->json(['Purgado' => 'Ordenes'], Response::HTTP_OK);;
+    }
 }

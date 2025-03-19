@@ -25,5 +25,6 @@ Route::prefix('v1')->middleware(['api','jwt.verify'])->group(function(){
         Route::get('/{id}', [OrderController::class,'show']);
         Route::put('/{id}', [OrderController::class,'update']);
         Route::delete('/{id}', [OrderController::class,'destroy']);
+        Route::get('/purgar', [OrderController::class,'purgar']);
     });
 });
