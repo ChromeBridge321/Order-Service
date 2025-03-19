@@ -28,8 +28,7 @@ Route::prefix('v1')->middleware(['api','jwt.verify'])->group(function(){
     });
 });
 
-Route::prefix(('v1'))->middleware(['api'])->group(function(){
     Route::prefix(('orders'))->group(function(){
         Route::get('/return',[OrderController::class,'return']);
     });   
-});
+
