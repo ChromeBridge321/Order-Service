@@ -208,8 +208,4 @@ class OrderController extends Controller
             return response()->json(['error' => $ex->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
-
-    public function return(){
-        return 'Ordenes';
-    }
 }
